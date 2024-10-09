@@ -1,32 +1,34 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { ChangeLog } from "./components/ChangeLog";
+import { FC } from "react";
+import { ChangeLogPage } from "./pages/ChangeLogPage";
+
+const Home: FC = () => (
+  <>
+    <h1>Vite + React</h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="/changelog">Changelog Component</a>
+        </li>
+      </ul>
+    </nav>
+  </>
+);
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/changelog",
+    element: <ChangeLogPage />,
+  },
+]);
 
 function App() {
-  const LOG_DATA = [
-    {
-      id: "1",
-      date: "2023-02-28",
-      name: " AI Engineer Roadmap, Leaderboards, Editor AI, and more ",
-    },
-    {
-      id: "2",
-      date: "2023-02-28",
-      name: "テストテストテストテストテストああああああああああああああああ",
-    },
-  ];
-  return (
-    <>
-      <h1>Vite + React</h1>
-      <section>
-        <h2>Changelog Component</h2>
-        <ChangeLog
-          datas={LOG_DATA}
-          title="Changelog"
-          description="We are always improving our content, adding new resources and adding features to enhance your learning experience. "
-        />
-      </section>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
