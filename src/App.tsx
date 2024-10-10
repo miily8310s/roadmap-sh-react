@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import { FC } from "react";
-import { ChangeLogPage } from "./pages/ChangeLogPage";
+import { ChangeLogPage, FormPage } from "./pages";
 
 const Home: FC = () => (
   <>
@@ -10,6 +10,9 @@ const Home: FC = () => (
       <ul>
         <li>
           <a href="/changelog">Changelog Component</a>
+        </li>
+        <li>
+          <a href="/form">Form Component</a>
         </li>
       </ul>
     </nav>
@@ -24,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/changelog",
     element: <ChangeLogPage />,
+  },
+  {
+    path: "/form",
+    element: <FormPage />,
   },
 ]);
 
